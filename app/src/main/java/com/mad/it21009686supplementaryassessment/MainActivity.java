@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         customAdapter = new CustomAdapter(MainActivity.this,bookID,bookAuthor,bookTitle,bookPages);
         recyclerView.setAdapter(customAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this ));
     }
 
     void storeDataInArrays(){
