@@ -1,6 +1,7 @@
 package com.mad.it21009686supplementaryassessment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton add_button;
     MyDatabaseHelper myDB;
     ArrayList<String> bookID, bookTitle, bookAuthor, bookPages;
+    CustomAdapter customAdapter;
 
 
     @Override
@@ -40,8 +42,13 @@ public class MainActivity extends AppCompatActivity {
         bookID = new ArrayList<>();
         bookAuthor = new ArrayList<>();
         bookTitle = new ArrayList<>();
-        bookPages = new ArrayList<>();
+        bookTitle = new ArrayList<>();
+
         storeDataInArrays();
+
+        customAdapter = new CustomAdapter(MainActivity.this,bookID,bookAuthor,bookTitle,bookPages);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
     void storeDataInArrays(){
